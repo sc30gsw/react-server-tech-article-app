@@ -36,7 +36,14 @@
   },
   "overrides": [
     {
-      "include": ["react-server.config.mjs", "postcss.config.mjs", "page.tsx"],
+      "include": [
+        "react-server.config.mjs",
+        "postcss.config.mjs",
+        "(*).page.tsx",
+        "(*).layout.tsx",
+        "page.tsx",
+        "layout.tsx"
+      ],
       "linter": {
         "rules": {
           "style": {
