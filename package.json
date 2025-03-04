@@ -4,15 +4,22 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "react-server",
+    "build": "react-server build",
+    "start": "react-server start",
+    "lint": "biome lint -- apply ./src",
+    "format": "biome format ./src --write",
+    "check:biome": "biome check --apply ./src"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "typescript": "~5.7.2",
     "vite": "^6.2.0"
   },
   "dependencies": {
-    "@lazarv/react-server": "^0.0.0-experimental-c280d96-20250301-671212f1"
+    "@lazarv/react-server": "^0.0.0-experimental-c280d96-20250301-671212f1",
+    "@tailwindcss/postcss": "^4.0.9",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.9"
   }
 }
