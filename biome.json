@@ -44,6 +44,14 @@
           }
         }
       }
+    },
+    {
+      "include": [".react-server/*"],
+      "linter": {
+        "rules": {
+          "all": false
+        }
+      }
     }
   ]
 }
