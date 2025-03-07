@@ -3,8 +3,17 @@ import { ArrowRight, Clock } from 'lucide-react'
 import { Suspense } from 'react'
 import { LatestArticleList } from '~/features/articles/components/latest-article-list'
 import { PopularArticleList } from '~/features/articles/components/popular-article-list'
+import {
+  getLatestArticles,
+  getPopularArticles,
+} from '~/features/articles/server/fetcher'
 
-export default function Home() {
+export default async function Home() {
+  const [latestArticlesResponse, popularArticlesResponse] = await Promise.all([
+    getLatestArticles(),
+    getPopularArticles(),
+  ])
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       <div className="text-center mb-16">
@@ -28,7 +37,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold text-gray-900">Latest Articles</h2>
         </div>
         <Suspense fallback={<div>Loading...</div>}>
-          <LatestArticleList />
+          <LatestArticleList articles={latestArticlesResponse.articles} />
         </Suspense>
       </div>
       <div className="mb-12">
@@ -48,7 +57,7 @@ export default function Home() {
           </Link>
         </div>
         <Suspense fallback={<div>Loading...</div>}>
-          <PopularArticleList />
+          <PopularArticleList articles={popularArticlesResponse.articles} />
         </Suspense>
       </div>
     </div>

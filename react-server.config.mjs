@@ -5,4 +5,8 @@ export default {
       '~/': new URL('./src/', import.meta.url).pathname,
     },
   },
+  export(paths) {
+    // SSGの設定
+    return [...paths, { path: '/popular' }]
+  },
 }
