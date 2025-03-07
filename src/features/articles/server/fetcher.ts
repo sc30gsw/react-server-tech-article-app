@@ -12,7 +12,7 @@ export async function getLatestArticles() {
 }
 
 export async function getPopularArticles(limit?: number) {
-  'use cache; ttl=200; tags=popular-articles'
+  // 'use cache; ttl=200; tags=popular-articles'
 
   const url = client.api.articles.popular.$url({ query: { limit } })
   type ResType = InferResponseType<typeof client.api.articles.popular.$get>
