@@ -42,7 +42,9 @@
         "(*).page.tsx",
         "(*).layout.tsx",
         "page.tsx",
-        "layout.tsx"
+        "layout.tsx",
+        "schema.ts",
+        "route.ts"
       ],
       "linter": {
         "rules": {
@@ -59,6 +61,20 @@
           "all": false
         }
       }
+    },
+    {
+      "include": ["*.tsx", "*.ts"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "useImportExtensions": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["env.ts"],
+      "linter": { "rules": { "style": { "useNamingConvention": "off" } } }
     }
   ]
 }
