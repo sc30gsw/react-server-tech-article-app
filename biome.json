@@ -36,7 +36,16 @@
   },
   "overrides": [
     {
-      "include": ["react-server.config.mjs", "postcss.config.mjs", "page.tsx"],
+      "include": [
+        "react-server.config.mjs",
+        "postcss.config.mjs",
+        "(*).page.tsx",
+        "(*).layout.tsx",
+        "page.tsx",
+        "layout.tsx",
+        "schema.ts",
+        "route.ts"
+      ],
       "linter": {
         "rules": {
           "style": {
@@ -52,6 +61,20 @@
           "all": false
         }
       }
+    },
+    {
+      "include": ["*.tsx", "*.ts"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "useImportExtensions": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["env.ts"],
+      "linter": { "rules": { "style": { "useNamingConvention": "off" } } }
     }
   ]
 }
