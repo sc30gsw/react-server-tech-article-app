@@ -4,6 +4,7 @@ import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
 
 import type { PropsWithChildren, ReactNode } from 'react'
+import { ConvexClientProvider } from '~/components/providers/convex-client-provider'
 
 export default function RootLayout({
   pageName,
@@ -17,11 +18,13 @@ export default function RootLayout({
         <title>Tech Article</title>
       </head>
       <body>
-        <div className="flex flex-col min-h-dvh">
-          <Header pageName={pageName} />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
+        <ConvexClientProvider>
+          <div className="flex flex-col min-h-dvh">
+            <Header pageName={pageName} />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
+        </ConvexClientProvider>
       </body>
     </html>
   )
