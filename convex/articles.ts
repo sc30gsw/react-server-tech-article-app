@@ -1,5 +1,5 @@
 import { v } from 'convex/values'
-import { query } from './_generated/server'
+import { mutation, query } from './_generated/server'
 
 export const get = query({
   args: {},
@@ -33,5 +33,20 @@ export const getPopular = query({
       id: article._id,
       createdAt: article._creationTime,
     }))
+  },
+})
+
+export const crete = mutation({
+  args: {
+    title: v.string(),
+    description: v.string(),
+  },
+  handler: async (ctx, args) => {
+    await ctx.db.insert('articles', {
+      title: args.title,
+      description: args.description,
+      author: '@Sicut_study',
+      viewCount: 0,
+    })
   },
 })
